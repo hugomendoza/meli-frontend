@@ -1,0 +1,42 @@
+:root {
+  --primary-font: Raleway, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-yellow: #ffe600;
+  --color-blue: #2968c8;
+  --color-black: #000000;
+}
+
+
+html {
+
+  font-family: var(--primary-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+
+  font-size: clamp(0.875rem, 0.2vw + 0.9rem, 1.10rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+.container {
+  width: min(90%, 1280px);
+  margin: 0 auto;
+}
