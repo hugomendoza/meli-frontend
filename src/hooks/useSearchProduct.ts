@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 
 import { useAppDispatch } from "./useRedux";
-import { setItems } from "../store";
+import { setCategories, setItems } from "../store";
 import { getProducts } from "../service";
 
 export const useSearchProduct = () => {
@@ -17,8 +17,9 @@ export const useSearchProduct = () => {
   const getProductsByQuery = async () => {
     if(!q) return;
     const { data } = await getProducts(q as string);
-    const { items } = data;
+    const { items, categories } = data;
     dispatch(setItems(items))
+    dispatch(setCategories(categories))
     setQuery(q as string);
   }
   
@@ -33,6 +34,7 @@ export const useSearchProduct = () => {
   const resetQueryParam = () => {
     if( location.pathname === "/" ) {
       dispatch(setItems([]))
+      dispatch(setCategories([]))
       setQuery("");
     };
   }

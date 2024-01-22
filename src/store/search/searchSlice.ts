@@ -4,6 +4,7 @@ import { Item, PropsInitialState } from '../../types';
 const initialState:PropsInitialState = {
   loading: false,
   items: [],
+  categories: []
 };
 
 export const searchSlice = createSlice({
@@ -15,11 +16,15 @@ export const searchSlice = createSlice({
     },
     setItems: (state, { payload }: { payload: Item[] }) => {
       state.items = payload;
+    },
+    setCategories: (state, { payload }: { payload: string[] }) => {
+      state.categories = payload;
     }
   }
 });
 
 export const {
   setLoading,
-  setItems
+  setItems,
+  setCategories
 } = searchSlice.actions;

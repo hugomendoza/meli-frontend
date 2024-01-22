@@ -1,4 +1,4 @@
-export * from "./Breadcrumb";
+export * from "./Breadcrumb/Breadcrumb";
 export * from "./NotFound";
 export * from "./CardProduct";
 export * from "./SearchBar/SearchBar";

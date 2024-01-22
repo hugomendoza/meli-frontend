@@ -1,6 +1,7 @@
 export interface PropsInitialState {
   loading: boolean;
   items: Item[]; 
+  categories: string[];
 }
 
 export interface PropsProducts {
