@@ -5,6 +5,7 @@ export const StyledBreadcrumb = styled.ul.attrs({
 })`
   display: flex;
   align-items: center;
+  margin: 1.5rem 0 2rem;
 
   li {
     list-style: none;

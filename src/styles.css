@@ -4,6 +4,8 @@
   --color-blue: #2968c8;
   --color-black: #000000;
   --color-gray: #666;
+  --color-green: #00a650;
+  --color-light-gray: #ededed;
 }
 
 
@@ -16,6 +18,10 @@ html {
   scroll-behavior: smooth;
 
   font-size: clamp(0.875rem, 0.2vw + 0.9rem, 1.10rem);
+}
+
+body {
+  background-color: var(--color-light-gray);
 }
 
 * {

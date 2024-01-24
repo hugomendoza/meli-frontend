@@ -17,7 +17,7 @@ export const AppRouter = () => {
           />
         ))}
         
-        {/* <Route path="items/:id" element={ <ProductPage /> }></Route> */}
+        <Route path="items/:id" element={ <ProductPage /> }></Route>
         <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </>
