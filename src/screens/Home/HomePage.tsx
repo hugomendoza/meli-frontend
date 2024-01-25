@@ -1,12 +1,17 @@
-import {Helmet} from "react-helmet";
-import { Breadcrumb, CardProduct, Seo } from "../../components";
+
+import { Breadcrumb, CardProduct, Loader } from "../../components";
 import { useAppSelector } from "../../hooks";
 
 import { Item } from "../../types";
 import { StyledHomePage } from "./HomePage.styles";
 
 export const HomePage = () => {
-  const { items, categories } = useAppSelector(state => state.search)
+  const { items, categories, loading } = useAppSelector(state => state.search);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <StyledHomePage>
       {/* <Seo name="Home" /> */}

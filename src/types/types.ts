@@ -4,11 +4,18 @@ export interface PropsInitialState {
   categories: string[];
 }
 
+
 export interface PropsProducts {
   ok:         boolean;
   author:     Author;
   items:      Item[];
   categories: string[];
+}
+
+export interface PropsProduct {
+  ok:     boolean;
+  author: Author;
+  item:   Item;
 }
 
 export interface Author {
@@ -23,6 +30,9 @@ export interface Item {
   picture:       string;
   condition:     string;
   free_shipping: boolean;
+  initial_quantity?: number;
+  description?:      string;
+  categories?:       string[];
 }
 
 export interface Price {

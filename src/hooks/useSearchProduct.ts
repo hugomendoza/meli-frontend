@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 
 import { useAppDispatch } from "./useRedux";
-import { setCategories, setItems } from "../store";
+import { setCategories, setItems, setLoading } from "../store";
 import { getProducts } from "../service";
 
 export const useSearchProduct = () => {
@@ -16,11 +16,18 @@ export const useSearchProduct = () => {
   
   const getProductsByQuery = async () => {
     if(!q) return;
-    const { data } = await getProducts(q as string);
-    const { items, categories } = data;
-    dispatch(setItems(items))
-    dispatch(setCategories(categories))
-    setQuery(q as string);
+    dispatch(setLoading(true))
+    try {
+      const { data } = await getProducts(q as string);
+      const { items, categories } = data;
+      dispatch(setItems(items))
+      dispatch(setCategories(categories))
+      setQuery(q as string);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(setLoading(false))
+    }
   }
   
   const [query, setQuery] = useState
