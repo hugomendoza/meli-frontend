@@ -27,7 +27,10 @@ export const SearchBar = () => {
   return (
     <StyledHeader>
       <div className="container">
-        <StyledLink to="/">
+        <StyledLink
+          to="/"
+          onClick={resetQueryParam}
+        >
           <img
             src={logoMeli}
             alt="Logo Mercado Libre"

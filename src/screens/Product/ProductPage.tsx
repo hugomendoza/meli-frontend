@@ -3,6 +3,7 @@ import { useAppSelector, useGetProduct } from '../../hooks';
 
 import { Breadcrumb, Loader } from '../../components';
 import { formattedPrice } from '../../helpers';
+import { StyledArticlePage, StyledDataCard, StyledDescription } from './ProductPage.styles';
 
 export const ProductPage = () => {
 
@@ -19,35 +20,55 @@ export const ProductPage = () => {
 
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="container">
+        <Loader />
+      </div>
+    );
   }
 
   return (
-    <div className="container">
-
-      <Breadcrumb categories={categories} />
-      
-      <section className="product">
-        <div className="row flex">
-          <article>
-            <figure className="product__img">
-              <img src={picture} alt={title} />
-            </figure>
-            <div className="product__description">
-              <h3>Descripción del producto</h3>
-              <p>{description}</p>
-            </div>
-          </article>
-          <aside>
-            <p className="product__sold">{condition} - {initial_quantity} vendidos</p>
-            <h1>{title}</h1>
-            <p className="product__price">{priceValue}
-              <sup>{price?.decimals > 10 ? price?.decimals : `${price?.decimals}0`}</sup>
-            </p>
-            <button className="product__button">Comprar</button>
-          </aside>
+    <main>
+    
+      <section>
+        <div className="container">
+          <Breadcrumb categories={categories} />
         </div>
       </section>
-    </div>
+
+      <section className="product">
+        <div className="container">
+          <StyledArticlePage>
+            <figure>
+              <img
+                src={picture}
+                alt={title}
+              />
+            </figure>
+            <StyledDataCard>
+              <p className="subtitle">
+                {condition} | {initial_quantity} disponibles
+              </p>
+              <h1 className="title">
+                {title}
+              </h1>
+              <p className="price">
+                {priceValue}
+                <sup>
+                  {price?.decimals > 10 ? price?.decimals : `${price?.decimals}0`}
+                </sup>
+              </p>
+              <button className="btn">
+                Comprar ahora
+              </button>
+            </StyledDataCard>
+            <StyledDescription>
+              <h3>Descripción</h3>
+              <p>{description}</p>
+            </StyledDescription>
+          </StyledArticlePage>
+        </div>
+      </section>
+    </main>
   )
 }

@@ -17,6 +17,14 @@ export const StyledProductArticle = styled.article.attrs({
       width: 100%;
     }
   }
+
+  @media (width < 576px) {
+    flex-direction: column; 
+
+    figure {
+      width: 100%;
+    }
+  }
 `
 
 export const StyledDataCard = styled.div.attrs({

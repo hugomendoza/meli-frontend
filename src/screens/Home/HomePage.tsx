@@ -9,7 +9,11 @@ export const HomePage = () => {
   const { items, categories, loading } = useAppSelector(state => state.search);
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="container">
+        <Loader />
+      </div>
+    );
   }
 
   return (
